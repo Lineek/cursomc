@@ -17,8 +17,12 @@ import com.guilhermev.cursomc.domain.Categoria;
 @RequestMapping(value="/categorias")
 public class CategoriaResource {
 
+	private final CategoriaService service;
+
 	@Autowired
-	private CategoriaService service;
+	public CategoriaResource(CategoriaService service) {
+		this.service = service;
+	}
 
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
